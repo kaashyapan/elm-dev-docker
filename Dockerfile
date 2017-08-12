@@ -13,7 +13,7 @@ EXPOSE 3000
 
 WORKDIR /root
 
-RUN yarn global add create-elm-app && \
+RUN yarn global add create-elm-app elm-format@exp elm-oracle && \
     create-elm-app /var/sample-elm-project
 
 CMD cp -nr /var/sample-elm-project /root && \
