@@ -14,8 +14,9 @@ EXPOSE 3000
 WORKDIR /root
 
 RUN yarn global add create-elm-app && \
-    create-elm-app my-elm-project
+    create-elm-app /var/sample-elm-project
 
-CMD /bin/bash
+CMD cp -nr /var/sample-elm-project /root && \
+	/bin/bash
 
 # tail -f /dev/null
