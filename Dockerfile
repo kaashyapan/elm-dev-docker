@@ -2,27 +2,20 @@ FROM node:latest
 
 MAINTAINER sunder.narayanaswamy@gmail.com
 
-ENV HOME /root
+RUN apt-get update && apt-get install -y emacs sudo
 
-# Install emacs & elm webpack starter
-
-RUN apt-get update && apt-get install -y \
-    emacs
-
-RUN git clone https://github.com/moarwick/elm-webpack-starter my-elm-project &&
-	cd cd my-elm-project &&
-	rm -rf .git &&
-	npm run reinstall
-   
 RUN apt-get -y autoremove && \
     apt-get -y clean  && \
     apt-get -y autoclean  && \
-    rm -rf /var/lib/apt/lists/* 
+    rm -rf /var/lib/apt/lists/*
 
-EXPOSE 8080
+EXPOSE 3000
 
 WORKDIR /root
 
+RUN yarn global add create-elm-app && \
+    create-elm-app my-elm-project
+
 CMD /bin/bash
-	
+
 # tail -f /dev/null
