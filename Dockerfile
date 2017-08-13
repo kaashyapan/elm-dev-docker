@@ -2,7 +2,7 @@ FROM node:latest
 
 MAINTAINER sunder.narayanaswamy@gmail.com
 
-RUN apt-get update && apt-get install -y emacs sudo python-pip
+RUN apt-get update && apt-get install -y emacs sudo python-pip python-dev build-essential 
 
 RUN apt-get -y autoremove && \
     apt-get -y clean  && \
