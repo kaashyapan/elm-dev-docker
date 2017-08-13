@@ -16,6 +16,10 @@ WORKDIR /root
 RUN yarn global add create-elm-app elm-format@exp elm-oracle && \
     create-elm-app /var/sample-elm-project
 
+RUN bash -c "wget https://bootstrap.pypa.io/get-pip.py" && \
+    bash -c "python get-pip.py" && \
+    bash -c "pip install --upgrade --user awscli"
+
 CMD cp -nr /var/sample-elm-project /root && \
 	/bin/bash
 
