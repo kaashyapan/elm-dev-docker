@@ -2,7 +2,7 @@ FROM node:latest
 
 MAINTAINER sunder.narayanaswamy@gmail.com
 
-RUN apt-get update && apt-get install -y emacs sudo
+RUN apt-get update && apt-get install -y emacs sudo python-pip
 
 RUN apt-get -y autoremove && \
     apt-get -y clean  && \
@@ -16,9 +16,7 @@ WORKDIR /root
 RUN yarn global add create-elm-app elm-format@exp elm-oracle && \
     create-elm-app /var/sample-elm-project
 
-RUN bash -c "wget https://bootstrap.pypa.io/get-pip.py" && \
-    bash -c "python get-pip.py" && \
-    bash -c "pip install --upgrade --user awscli"
+RUN bash -c "pip install --upgrade pip awscli"
 
 CMD cp -nr /var/sample-elm-project /root && \
 	/bin/bash
