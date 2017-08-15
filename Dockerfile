@@ -2,23 +2,21 @@ FROM node:latest
 
 MAINTAINER sunder.narayanaswamy@gmail.com
 
-RUN apt-get update && apt-get install -y emacs sudo python-pip python-dev build-essential 
+EXPOSE 3000
+
+RUN yarn global add brunch elm elm-test elm-css elm-brunch elm-format@exp elm-oracle
+
+RUN apt-get update && apt-get install -y emacs sudo python3-pip
+
+RUN bash -c "pip3 install --upgrade pip awscli"
 
 RUN apt-get -y autoremove && \
     apt-get -y clean  && \
     apt-get -y autoclean  && \
     rm -rf /var/lib/apt/lists/*
 
-EXPOSE 3000
-
 WORKDIR /root
 
-RUN yarn global add create-elm-app elm-format@exp elm-oracle && \
-    create-elm-app /var/sample-elm-project
-
-RUN bash -c "pip install --upgrade pip awscli"
-
-CMD cp -nr /var/sample-elm-project /root && \
-	/bin/bash
+CMD /bin/bash
 
 # tail -f /dev/null
