@@ -2,7 +2,7 @@ FROM node
 
 MAINTAINER sunder.narayanaswamy@gmail.com
 
-RUN yarn global add brunch elm elm-test elm-css elm-brunch elm-format@exp elm-oracle elm-live tern js-beautify jshint
+RUN yarn global add brunch elm elm-test elm-css elm-brunch elm-format@exp elm-oracle tern js-beautify jshint browser-sync
 
 RUN apt-get update && apt-get install -y emacs sudo python3-pip git
 
