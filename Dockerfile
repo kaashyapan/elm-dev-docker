@@ -2,7 +2,7 @@ FROM node
 
 MAINTAINER sunder.narayanaswamy@gmail.com
 
-RUN yarn global add brunch uglify-js recursive-uglify-js clean-css clean-css-cli \ 
+RUN yarn global add brunch uglify-js recursive-uglifyjs clean-css clean-css-cli \ 
                     elm elm-test elm-css elm-format@exp elm-oracle \
                     tern js-beautify jshint browser-sync
                     
