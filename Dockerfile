@@ -2,11 +2,11 @@ FROM node
 
 MAINTAINER sunder.narayanaswamy@gmail.com
 
-RUN yarn global add brunch elm elm-test elm-css elm-brunch elm-format@exp elm-oracle tern js-beautify jshint browser-sync
-
-RUN apt-get update && apt-get install -y emacs sudo python3-pip git
-
-RUN bash -c "pip3 install --upgrade pip awscli aws-shell"
+RUN yarn global add brunch uglify-js recursive-uglify-js clean-css clean-css-cli \ 
+                    elm elm-test elm-css elm-format@exp elm-oracle \
+                    tern js-beautify jshint browser-sync
+                    
+RUN apt-get update && apt-get install -y emacs git
 
 RUN apt-get -y autoremove && \
     apt-get -y clean  && \
