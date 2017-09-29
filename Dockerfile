@@ -17,7 +17,7 @@ RUN apt-get -y autoremove && \
 EXPOSE 3000
 
 # websocket port for brunch watch
-EXPOSE 9485
+EXPOSE 9485-9495
 
 # websocket port for elm-live/livereload
 EXPOSE 35729
